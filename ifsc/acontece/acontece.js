@@ -7,28 +7,6 @@ var acontece =  {
         targetId : __targetId,
 	feedURL : "http://www.ifsc.usp.br/eventos_rss.php",
 	feed    : null, 
-	style : <><![CDATA[
-		.acontece_date { 
-			color:white;
-			font-weight:bold;
-			font-size:22px;
-			margin-right:.5em;
-			border-right:6px solid white;
-			padding-right:.5em
-		}
-		.acontece_panel { 
-			color:black;
-			font-size:30px;
-			font-weight:bold;
-			-moz-border-radius:12px;
-			background-color: rgba(255,255,255,.4);
-			-moz-box-shadow: rgba(255,255,255,.4) 0 0 20px; 
-			padding:10px;
-			height:135px;
-			margin-top:10px;
-			margin-bottom:10px;
-		} 
-	]]></>, 
 
 	start : function() {
 
@@ -58,17 +36,10 @@ var acontece =  {
 	},
 
 	init : function () { 
-	 	var style = this._coreDoc.createElementNS("http://www.w3.org/1999/xhtml", "style");
-		this._coreDoc.getElementById("headtarget").appendChild(style);
-		style.innerHTML=this.style; 
-
 		this.feed = new this._service_google.feeds.Feed(this.feedURL);
 		this.feed.setNumEntries(10);
-
 	} ,
 	popAll : function() {
-
-
 	},
 
 	updateFeed : function() {
