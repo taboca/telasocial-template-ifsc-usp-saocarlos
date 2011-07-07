@@ -1,3 +1,10 @@
+ .typingPanel {
+                        font-size:46px;
+                        font-weight:bold;
+                        color:black;
+                }
+
+
 
 		#storetempEventos {
 			margin: 0 auto; // nao funciona - "centralizar"

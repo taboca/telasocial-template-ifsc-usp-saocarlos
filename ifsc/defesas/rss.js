@@ -46,59 +46,6 @@ var rsseventos =  {
 	title   : "Twitter 10",
 	feedURL : "http://www.ifsc.usp.br/defesas2_rss.php",
 	feed    : null, 
-	style : <><![CDATA[
-		#storetempEventos {
-			margin: 0 auto; // nao funciona - "centralizar"
-		}
-		.defesasNota { 
-			color:blue;
-			font-weight:bold;
-			font-size:32px;
-			margin-right:.5em;
-			border-right:6px solid white;
-			padding-right:.5em;
-		}
-		.defesas {
-			color:black;
-                        display:inline-block;
-                        background-color:#ffc;
-                        overflow:hidden;
-                        margin:15px;
-			margin-left:25px;
-                        padding:15px;
-                        width:450px;
-                        height:270px;
-                        -moz-box-shadow: black 10px 10px 10px;
-		} 
-		.defesa_title { 
-                        font-weight:bold;
-                        font-size:22px;
-		} 
-		.defesa_local { 
-                        font-weight:bold;
-			font-size:15px;
-			color:#777;
-			border-top:1px solid gray;
-			padding-top:10px;
-		} 
-		.defesa_datahora { 
-                        font-weight:bold;
-			font-size:15px;
-			color:#777;
-			border-top:1px solid gray;
-			padding-top:10px;
-		} 
-		.defesa_description { 
-                        font-size:22px;
-			font-weight:bold;
-			margin-top:20px;
-			color:#447;
-		} 
-
-		.twitterPanelEventos { 
-			width:100%;
-		} 
-	]]></>, 
 	start : function() {
 
                 this.elementStore = this._coreDoc.createElement('div');
@@ -122,9 +69,6 @@ var rsseventos =  {
 		timer.setTimeout( function(){self.updateFeed()},15000);
 	},
 	init : function () { 
-	 	var style = this._coreDoc.createElementNS("http://www.w3.org/1999/xhtml", "style");
-		this._coreDoc.getElementById("headtarget").appendChild(style);
-		style.innerHTML=this.style; 
 		this.feed = this._service_jquery;
 	} ,
 	render : function() {

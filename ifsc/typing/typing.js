@@ -10,14 +10,6 @@ var typing =  {
 	feedURL : "http://www.ifsc.usp.br/noticias_rss.php",
 	feed    : null, 
 
-	style : <><![CDATA[
-		.typingPanel { 
-			font-size:46px; 
-			font-weight:bold;
-			color:black;
-		} 
-	]]></>, 
-
 	start : function() {
 		this.elementTable = this._coreDoc.createElement("div");
 		this.elementTable.innerHTML="<table width='1060'><tr><td align='center' valign='middle' width='140'><div id='icon' style='' ></div></td><td><table width='100%'><tr><td height='235' valign='middle'><div class='typingPanel' id='typingcontainer'></div></td></tr><tr><td><div style='font-size:18px;color:rgb(50,60,150);text-align:right'>Fonte: www.ifsc.usp.br</div></td></tr></table></td></tr></table>";
@@ -37,9 +29,6 @@ var typing =  {
 	},
 
 	init : function () { 
-	 	var style = this._coreDoc.createElementNS("http://www.w3.org/1999/xhtml", "style");
-		this._coreDoc.getElementById("headtarget").appendChild(style);
-		style.innerHTML=this.style; 
                 this.feed = this._service_jquery;
 	},
 	popTweet : function() {
