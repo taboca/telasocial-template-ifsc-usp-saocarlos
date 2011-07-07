@@ -9,45 +9,6 @@ var twitter =  {
 	feedURL : "http://www.ifsc.usp.br/destaques_rss.php",
 	feed    : null, 
 
-	style : <><![CDATA[
-		
-
-		.destaque_element {                        
-			color:black;                        
-			display:inline-block;
-                        font-size:50px;
-
-			overflow:hidden;
-                        font-weight:bold;                        
-                        margin:15px;
-                        padding:15px;
-                        width:1050px;
-                        height:410px;
-			color:#444;
-                }
-
-		.destaque_element img { 
-			float:left;
-			margin-right:20px;
-		} 
-
-		.command {
-                        color:black;
-                        display:inline-block;
-                        background-color:white;
-			opacity:.5;
-                        font-size:22px;
-                        overflow:hidden;
-                        font-weight:bold;
-                        margin:15px;
-                        padding:15px;
-                        width:300px;
-                        height:220px;
-                        -moz-box-shadow: black 10px 10px 10px;
-                }
-	]]></>, 
-
-
 	start : function() {
 
 		this.element = this._coreDoc.createElement('div');
@@ -71,12 +32,7 @@ var twitter =  {
 	},
 
 	init : function () { 
-	 	var style = this._coreDoc.createElementNS("http://www.w3.org/1999/xhtml", "style");
-		this._coreDoc.getElementById("headtarget").appendChild(style);
-		style.innerHTML=this.style; 
-
 		this.feed = this._service_jquery;
-
 	} ,
 	popTweet : function() {
 		if (this.tweetQueue.length == 0) return false;
