@@ -100,7 +100,6 @@ var layoutVertical =  {
 		c.load("./org/ifsc/layout/style.css", function s(d) {
 			self.asyncStyle(d);
 		} , function e(i) { console.log(i) } );
-		} catch(i) { console.log(i) }
 	}
 
 }
