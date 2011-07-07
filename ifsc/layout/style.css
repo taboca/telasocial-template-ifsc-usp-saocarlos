@@ -1,0 +1,64 @@
+
+	html { padding:0; margin:0; overflow:hidden; font-family: verdana, arial, sans-serif } 
+
+	body {
+		background-color:rgb(255,255,255); margin:0; padding:0;
+	}
+
+	table.maintable { 
+		width:1080px;
+	} 
+
+	.panel {
+		margin-left:10px;
+		display:none;
+		width:1060px;
+		height:1000px;
+		overflow:hidden;
+	} 
+
+	.tab {
+                font-size:28px;
+		margin:0px;
+		padding:15px;
+                font-weight:bold;
+        }
+
+	#area_topright { 
+		padding-top:90px;
+	} 
+
+        .transp { background-color:transparent; }
+
+        #pointer {
+                top:540px;
+                width:60px;
+                -moz-border-radius:1px;
+                height:20px;
+                background-color:black;
+                z-index:1111;
+                position:absolute;
+                left:0px;
+        }
+
+	#frame { 
+	 	margin:0;
+		padding:0;
+	}
+
+	#area_bottom {
+		padding:1em;
+                height:270px;
+                background-color:white;
+    		font-family:Kaffeesatz,Verdana, Arial, Helvetica, sans-serif;
+		width:1060px;
+		color:black;
+		font-weight:bold;
+        }
+	
+	#area_midmid { 
+		width:1080px; 
+		height:420px; 
+		overflow:hidden;
+	} 
+

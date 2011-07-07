@@ -19,73 +19,7 @@ var layoutVertical =  {
         movepos : 0,
         moveWidth: 1080, 
 
-	style : <><![CDATA[
-
-	html { padding:0; margin:0; overflow:hidden; font-family: verdana, arial, sans-serif } 
-
-	body {
-		background-color:rgb(255,255,255); margin:0; padding:0;
-	}
-
-	table.maintable { 
-		width:1080px;
-	} 
-
-	.panel {
-		margin-left:10px;
-		display:none;
-		width:1060px;
-		height:1000px;
-		overflow:hidden;
-	} 
-
-	.tab {
-                font-size:28px;
-		margin:0px;
-		padding:15px;
-                font-weight:bold;
-        }
-
-	#area_topright { 
-		padding-top:90px;
-	} 
-
-        .transp { background-color:transparent; }
-
-        #pointer {
-                top:540px;
-                width:60px;
-                -moz-border-radius:1px;
-                height:20px;
-                background-color:black;
-                z-index:1111;
-                position:absolute;
-                left:0px;
-        }
-
-	#frame { 
-	 	margin:0;
-		padding:0;
-	}
-
-	#area_bottom {
-		padding:1em;
-                height:270px;
-                background-color:white;
-    		font-family:Kaffeesatz,Verdana, Arial, Helvetica, sans-serif;
-		width:1060px;
-		color:black;
-		font-weight:bold;
-        }
-	
-	#area_midmid { 
-		width:1080px; 
-		height:420px; 
-		overflow:hidden;
-	} 
-
-
-]]></>,
+	style : "", html: "",
        
         pass: new Array(), 
  
@@ -112,54 +46,9 @@ var layoutVertical =  {
 		} 
         },
 
-	start : function () { 
+	delayedStart : function () { 
 		var importedElement = this._coreDoc.createElement("div");
-		importedElement.innerHTML =  <>
-<div id="frame">
-<div id='pointer'>
-</div>
-<table class='maintable' border="0" >
-<tr>
-<td align="left" valign="top" style="height:550px;padding:0;background:white url(http://www.ifsc.usp.br/imagens/tela_social/barra_sup.jpg) 0px 0px no-repeat" >
-
-<table border='0' width='1080' height="120">
-<tr>
-<td id='area_topleft' width='230' valign='middle' align="center" >
-
-</td>
-<td id='area_topmid' align="right" valign="middle" >
-</td>
-</tr>
-</table>
-
-<div id="area_midmid">
-</div>
-
-</td>
-</tr>
-</table>
-
-<table>
-
-<tr style="height:50px" id='tabContainer'>
-</tr>
-<tr>
-<td id='panelContainer'>
-</td>
-</tr>
-</table>
-<table>
-<tr>
-<td id='area_bottom' valign='top'>
-</td>
-<td id='area_bottomright' valign="middle">
-</td>
-</tr>
-</table>
-
-</div>
-
-</>;
+		importedElement.innerHTML =  this.html;
 
 		this._coreDoc.getElementById(this._getId()).appendChild(importedElement);
 
@@ -184,14 +73,34 @@ var layoutVertical =  {
 
 
 	init : function () {
-	try { 
 	 	var style = this._coreDoc.createElementNS("http://www.w3.org/1999/xhtml", "style");
 		this._coreDoc.getElementById("headtarget").appendChild(style);
 		style.innerHTML=this.style; 
-		console.log(this._coreDoc);
-	
-	} catch(i) { console.log(i) } 
+	},
 
+	start: function () { 
+
+	},
+
+	asyncHTML: function (data) {
+		this.html = data;
+		this.delayedStart();
+	},
+	asyncStyle: function (data) {
+		var style = this._coreDoc.createElementNS("http://www.w3.org/1999/xhtml", "style");
+		this._coreDoc.getElementById("headtarget").appendChild(style);
+		style.innerHTML=data;
+	},
+
+	init : function () {
+		var self = this;
+		c.load("./org/ifsc/layout/layout.html", function s(d) {
+			self.asyncStart(d);
+		} , function e(i) { console.log(i) } );
+		c.load("./org/ifsc/layout/style.css", function s(d) {
+			self.asyncStyle(d);
+		} , function e(i) { console.log(i) } );
+		} catch(i) { console.log(i) }
 	}
 
 }
