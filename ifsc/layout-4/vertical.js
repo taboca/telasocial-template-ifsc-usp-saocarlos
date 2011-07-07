@@ -78,8 +78,7 @@ var layoutVertical =  {
                 this.delayedStart();
         },
         asyncStyle: function (data) {
-                var style = this._coreDoc.createElementNS("http://www.w3.org/1999/xhtml", "styl
-e");
+                var style = this._coreDoc.createElementNS("http://www.w3.org/1999/xhtml", "style");
                 this._coreDoc.getElementById("headtarget").appendChild(style);
                 style.innerHTML=data;
         },
