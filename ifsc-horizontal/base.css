@@ -1,6 +1,6 @@
 @import url("http://fonts.googleapis.com/css?family=Varela");
 
-html, body { margin:0; padding:0; color:white; overflow:hidden } 
+html, body { width:1920px; height:1080px; margin:0; padding:0; color:white; overflow:hidden } 
 
 * { 
   font-family: 'Varela', sans-serif;
