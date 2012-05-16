@@ -1,0 +1,22 @@
+@import url("http://fonts.googleapis.com/css?family=Varela");
+
+html, body { margin:0; padding:0; color:white; overflow:hidden } 
+
+* { 
+  font-family: 'Varela', sans-serif;
+} 
+
+.base { 
+  background: 
+-moz-radial-gradient( 50% 0%, circle , white, rgb(0,145,173));
+  background-size:1920px 1080px;
+} 
+
+.datetime  { 
+  font-size:180%;
+  font-weight:bold;
+  text-align:center;
+  margin-top:20px;
+} 
+
+
