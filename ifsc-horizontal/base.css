@@ -1,12 +1,13 @@
 @import url("http://fonts.googleapis.com/css?family=Varela");
 
-html, body { width:1920px; height:1080px; margin:0; padding:0; color:white; overflow:hidden } 
+html, body {  margin:0; padding:0; color:white; overflow:hidden } 
 
 * { 
   font-family: 'Varela', sans-serif;
 } 
 
 .base { 
+  width:1920px; height:1080px;
   background: 
 -moz-radial-gradient( 50% 0%, circle , white, rgb(0,145,173));
   background-size:1920px 1080px;
