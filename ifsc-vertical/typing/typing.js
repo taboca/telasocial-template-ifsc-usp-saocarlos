@@ -1,36 +1,31 @@
-c     = require("choreographer");
-timer = require("timer");
 
 var typing =  {
-	name   : __appName,
-        target : __targetName,
-        targetId : __targetId,
-
-	title   : "Twitter 10",
-	feedURL : "http://www.ifsc.usp.br/noticias_rss.php",
+	feedURL : URL_TYPING,
 	feed    : null, 
-
 	start : function() {
-		this.elementTable = this._coreDoc.createElement("div");
-		this.elementTable.innerHTML="<table width='1060'><tr><td align='center' valign='middle' width='140'><div id='icon' style='' ></div></td><td><table width='100%'><tr><td height='235' valign='middle'><div class='typingPanel' id='typingcontainer'></div></td></tr><tr><td><div style='font-size:18px;color:rgb(50,60,150);text-align:right'>Fonte: www.ifsc.usp.br</div></td></tr></table></td></tr></table>";
+		this.elementTable = document.createElement("div");
+		this.elementTable.innerHTML="<table><tr><td align='center' valign='middle' width='110'><div id='icon' style='' ></div></td><td><table ><tr><td height='255' valign='middle'><div class='typingPanel' id='typingcontainer'></div></td></tr><tr><td></td></tr></table></td></tr></table>";
 
-		this._coreDoc.getElementById(this._getId()).appendChild(this.elementTable);
-		this._coreDoc.getElementById("icon").innerHTML= '<img src="http://www.ifsc.usp.br/imagens/tela_social/logo_ifsc.jpg" style="margin-right:15px; margin-bottom:10px; " align="left" />';
+		document.getElementById("main").appendChild(this.elementTable);
+		document.getElementById("icon").innerHTML= '<img src="../vendor/g1.png" style="margin:10px; " align="left" />';
 		this.tweetQueue = new Array();
 
-		var first = this._coreDoc.createElement("div");
+		var first = document.createElement("div");
 		this.firstId = "firsttyping";
 		first.id = this.firstId;
 		this.tweetRepeated = {};
-		this._coreDoc.getElementById('typingcontainer').appendChild(first);
+		document.getElementById('typingcontainer').appendChild(first);
 
 		var self = this;
-		timer.setTimeout( function(){self.updateFeed()},10000);
+		setTimeout( function(){self.updateFeed()},1000);
 	},
 
 	init : function () { 
-                this.feed = this._service_jquery;
-	},
+		this.feed = new google.feeds.Feed(this.feedURL);
+		this.feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
+		this.feed.setNumEntries(10);
+	} ,
+	
 	popTweet : function() {
 		if (this.tweetQueue.length == 0) return false;
 		var t = this.tweetQueue.pop();
@@ -58,7 +53,7 @@ var typing =  {
 			this.cycleIndex=0;
 		} 
 		var self = this;
-		timer.setTimeout( function(){self.readStep()},1000);
+		setTimeout( function(){self.readStep()},1000);
 	}, 
 	
 	readStep: function () { 
@@ -71,18 +66,18 @@ var typing =  {
 			if(i==0) { 
 			} 
 		} 
-		this._coreDoc.getElementById("firsttyping").innerHTML=sum;
+		document.getElementById("firsttyping").innerHTML=sum;
 		this.readIndex++;
 		if(this.readIndex>words.length) { 
 			var self = this;
 			this.readIndex=0;
 			this.cycleIndex++;
 
-			timer.setTimeout( function(){self.readLine()},5000);
+			setTimeout( function(){self.readLine()},7000);
 		} 
 		else { 
 			var self = this;
-			timer.setTimeout( function(){self.readStep()},150);
+			setTimeout( function(){self.readStep()},150);
 		} 
 	},
 
@@ -91,20 +86,20 @@ var typing =  {
 	updateFeed : function() {
 		if (!this.popTweet()) {
 			var self =this;
-			this.feed.ajax( { type:"GET", url: this.feedURL, dataType: "xml", success: function (xml) {  self.__feedUpdated(xml) } });
+			this.feed.load( function (e) { self.__feedUpdated(e) } );
 		}
 		var self = this;
-		timer.setTimeout( function(){self.updateFeed()},10000);
+		setTimeout( function(){self.updateFeed()},1000);
 	},
 
 	__feedUpdated : function(xml) {
 		var self  = this;
-                this.feed(xml).find('item').each(function(){
-                        var title = self.feed(this).find('title').text();
+		
+                $(xml.xmlDocument).find('item').each(function(){
+                        var title = $(this).find('title').text();
                         self.tweetQueue.push( { title: title });
 		});
 	}
 
 }
 
-c.register(typing);
