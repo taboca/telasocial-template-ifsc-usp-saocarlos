@@ -1,6 +1,5 @@
 rm -rf ./telasocial-output.zip
 rm -rf ./installer
-rm -rf TelaSocial
 
 mkdir ./installer
 echo .
