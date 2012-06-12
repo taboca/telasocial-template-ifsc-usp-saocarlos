@@ -1,0 +1,3 @@
+cd installer
+./install.sh
+
