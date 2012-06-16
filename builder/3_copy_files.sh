@@ -1,3 +1,0 @@
-cd installer
-./install.sh
-
