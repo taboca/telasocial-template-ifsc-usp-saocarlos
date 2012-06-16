@@ -6,8 +6,7 @@ $(document).ready(function() {
    register("#main #middle-tabs", "abas", "./abas/barraAbasTop.html", iframeTemplate);
    register("#main #topmiddle", "mid", "./destaques/index.html", iframeTemplate);
    register("#main #bottom", "typing", "./typing/index.html", iframeTemplate);
-   //register("#main #bottomright", "tempo", "./tempo-inpe/index.html", iframeTemplate);
-   register("#main #bottomright", "tempo", "http://172.16.158.207:53", iframeTemplate);
+   register("#main #bottomright", "tempo", "./tempo-inpe/index.html", iframeTemplate);
 
    compile();  // this can be based in events in time too or scoped rules events.  So, when something happens 
  		// in the live store, it happens. one use case is that insertion of a IFRAME mutation 

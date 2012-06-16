@@ -61,6 +61,7 @@ function createChilds(item) {
 	$(rule).html(iframeTemplate.data);
  	$(rule+" iframe").attr("id",id);
 	$(rule+" iframe#"+id).load(function () { 
+
 		$('#debug').append("<li>iframe"+id+" loaded</li>");
 
 		for(var k in sets[item.rule]) { 

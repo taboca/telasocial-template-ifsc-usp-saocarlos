@@ -22,14 +22,18 @@ function loadWidget() {
 	$(rule).html(iframeTemplate.data);
  	$(rule+" iframe").attr("id",id);
 	$(rule+" iframe#"+id).load(function () { 
-		$('#debug').append("<li>iframe"+id+" loaded</li>");
-		if(pending.length>0) { 
-			loadWidget();
-		} else { 
-			startEngine(); 
-		} 
 	});
  	$(rule+" iframe").attr("src",src);
+
+	dump("<li>iframe"+id+" loaded</li>");
+
+        // Forcing load seamless
+	if(pending.length>0) { 
+		loadWidget();
+	} else { 
+		startEngine(); 
+	} 
+
 } 
 
 var iframeTemplate = { 
