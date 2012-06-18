@@ -1,6 +1,6 @@
 $(document).ready(function() {
    register("/main/topo", "cabecalho", "./header/index.html", iframeTemplate);
-   register("/main/ladoe", "meio", "./twitter/scinfor.html", iframeTemplate);
+   register("/main/ladoe", "meio", "./twitter/test.html", iframeTemplate);
    register("/main/ladod", "mid", "./ifsc/grafico.html", iframeTemplate);
    register("/main/fundo", "clima", "./typing/index.html", iframeTemplate);
    compile();   
@@ -21,8 +21,8 @@ function cicleMidia() {
 } 
 
 function tvMode() { 
-  document.getElementById("viewport").style.width="1920";
-  document.getElementById("viewport").style.height="1080";
+  //document.getElementById("viewport").style.width="1920";
+  //document.getElementById("viewport").style.height="1080";
   animate();
 } 
 
