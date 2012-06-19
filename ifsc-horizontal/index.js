@@ -26,10 +26,26 @@ function tvMode() {
   animate();
 } 
 
+on = false;
 function animate() { 
-  tv.add($('#animation li'));
-  tv.play();
-  setTimeout("animate()",TEMPO_REFRESH);
+
+	tv.tickMode = false;
+
+	tv.add($('#animation li'));
+	tv.play(1); 
+	on = true;
+	document.body.addEventListener("keydown", function (e) { 
+		if(e.keyCode==37) { 
+			tv.tick(-1);
+			e.preventDefault();
+		} 
+		if(e.keyCode==39) { 
+			tv.tick(1);
+			e.preventDefault();
+		} 
+	}, false); 
+
+  //setTimeout("animate()",TEMPO_REFRESH);
 } 
 
 
