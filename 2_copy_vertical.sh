@@ -5,8 +5,9 @@ cd TelaSocial
 cd builder
 
 ./1_build_installer.sh
-cd installer
-./0_install.sh
+./2_install_webapp.sh
 
-echo '*** you may also see the installer.sh and check INSTALL.TXT manual ***'
+cd installer
+
+echo '*** Check steps in installer ***'
 
