@@ -37,7 +37,9 @@ var midia =  {
 		}
 
         var scopedThis = this;
-        document.getElementById("container").addEventListener("rotate",function handle(e) { scopedThis.timeEvent(e) } , false);
+        document.getElementById("container").addEventListener("rotate",function handle(e) {
+            scopedThis.timeEvent(e)
+        } , false);
         setTimeout( function () { scopedThis.popPic() }, 1000);
 
 	},
@@ -120,7 +122,7 @@ var midia =  {
 		} 
 
 	    });
-	this.popPic();
+	    this.popPic();
 	}
 }
 
