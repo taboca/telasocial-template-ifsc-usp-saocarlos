@@ -51,21 +51,16 @@ var destaque =  {
 		if (result.error) {
 			return;
 		}
-     		$(result.xmlDocument).find('item').each(function(){
-                        var title = $(this).find('title').text();
-                        //var description = $(this).find('description').text();
-                        var description = "";
-
-    $(this).find('description').contents().each(function() {
-        if(this.nodeName == "#text") { 
-		description += this.textContent;
-	} 
-    });
-
-                        //var image = $(this).find('image').text();
-			//self.tweetQueue.push( { title: title, image: image } );
+  		$(result.xmlDocument).find('item').each(function(){
+           var title = $(this).find('title').text();
+           var description = "";
+            $(this).find('description').contents().each(function() {
+                if(this.nodeName == "#text") { 
+        		description += this.textContent;
+                } 
+            });
 			self.tweetQueue.push( { title: title, desc: description } );
-                });
+        });
 	}
 }
 

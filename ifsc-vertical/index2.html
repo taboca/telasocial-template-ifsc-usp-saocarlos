@@ -15,7 +15,7 @@
     #viewport { 
 	-moz-transform-origin:0 0;
 	overflow:hidden;
-	background-color:white;
+     background: -moz-radial-gradient( 50% 0%, circle , white, rgba(100,200,250,1));
     } 
  
     html, body {
@@ -40,14 +40,12 @@
 </div>
 
 <div id='viewport' class='viewport' >
-<div id='pagetranslate' >
-<div id='pagescale' style='position:relative'>
 
 <div  class='gh1080 slide' data-time="2s" data-effect="move" data-duration="3s"  >
 
 <div id="top" >
 
-<div class='gv2' style='background: lightblue url(http://www.ifsc.usp.br/images/stories/telasocial/barra_sup-nova.jpg) 0px 0 no-repeat'>
+<div class='gv2' style='url(http://www.ifsc.usp.br/images/stories/telasocial/barra_sup-nova.jpg) 0px 0 no-repeat'>
 
 <div class='gh540' id='topleft'>
    <div class='gv2'></div>
@@ -85,29 +83,14 @@
 
 </div>
 
-<div class='gh1080 slidedesligado' data-time="8s" data-effect="move" data-duration="3s" style='background: url("brand/bg-blue.png");'>
-
-<img src="brand/logo_ifsc.png" style='margin-top:200px;border:0px;overflow:hidden;width:500px;background:none;'>
-</img>
-<p>
-<img src="brand/usp_branco.png" style='width:250px;background:none;'>
-</p>
-
-</div>
-
-<div class='gh1080' style='background: url("brand/bg-orange.png");' >
-
-</div>
-
-</div>
-</div>
 </div>
 
 <ul id='animation'>
  <li data-scope='abas-meio' data-target='panel_acontece' data-time="1s" data-effect="scalefit" data-duration="4s" />
  <li data-scope='abas-meio' data-target='panel_defesas' data-time="20s" data-effect="scalefit" data-duration="4s" />
- <li data-scope='abas-meio' data-target='panel_midia' data-time="30s" data-effect="scalefit" data-duration="4s"  />
+ <li data-scope='abas-meio' data-target='panel_midia' data-time="5s" data-effect="scalefit" data-duration="4s"  />
 </ul>
 
+<div style='display:none' id='temp'> </div>
 </body>
 </html>
