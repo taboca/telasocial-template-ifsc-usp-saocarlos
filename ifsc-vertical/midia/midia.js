@@ -1,16 +1,17 @@
 
 var midia =  {
-        feed        : null,
-        feedURL     : URL_MIDIA,
-	refElement   : null, 
-	imageNumber  : 0,
-	element      : null,
-        picWidth     : 1080,
-        picHeight    : 1090,
-        picQueue     : null, 
-        totalElements: 1, 
-	refContainers: null, 
-        refContainerCycle : -1, 
+    feed        : null,
+    feedURL     : URL_MIDIA,
+    refElement   : null, 
+    imageNumber  : 0,
+    element      : null,
+    picWidth     : 1080,
+    picHeight    : 1090,
+    picQueue     : null, 
+    totalElements: 1, 
+    refContainers: null, 
+    refContainerCycle : -1, 
+    flipContainers:0,
 		
 	start: function () { 
 
@@ -35,9 +36,9 @@ var midia =  {
 			this.refContainers[i]=k;
 		}
 
-		var scopedThis = this;
-                document.getElementById("container").addEventListener("rotate",function handle(e) { scopedThis.timeEvent(e) } , false);
-               	setTimeout( function () { scopedThis.popPic() }, 1000);
+        var scopedThis = this;
+        document.getElementById("container").addEventListener("rotate",function handle(e) { scopedThis.timeEvent(e) } , false);
+        setTimeout( function () { scopedThis.popPic() }, 1000);
 
 	},
 
@@ -47,28 +48,9 @@ var midia =  {
 		this.feed.setNumEntries(10);
 	},
 
-        flipContainers:0,
-
-        timeEvent: function () {
-
-/*
-                for(var i=0; i<this.totalElements; i++) {
-			var k = this.refContainers[i]; 
-			k.style.width = "0px";
-			k.style.height= "0px";
-                }
-
-		var k = this.refContainers[this.flipContainers]; 
-		k.style.width = this.picWidth + "px";
-		k.style.height= this.picHeight + "px";
-                this.flipContainers++;
-                if(this.flipContainers>=this.totalElements) {
-                        this.flipContainers=0;
-                }
-*/
-                this.kickFadeIn();
-
-        },
+    timeEvent: function () {
+        this.kickFadeIn();
+    },
 
 	popPic: function() {
 		if (this.picQueue.length == 0) { 
@@ -108,37 +90,37 @@ var midia =  {
 	},
 
 	kickFadeIn : function () { 
-		var scopedThis = this;
-               	setTimeout( function () { scopedThis.popPic() }, 100*10);
+        var scopedThis = this;
+        setTimeout( function () { scopedThis.popPic() }, 100*10);
 	},
 
 	__feedUpdated : function(result) {
 		var self  = this;
-     		$(result.xmlDocument).find('entry').each(function(){
-			var title = $(this).find('title').text();
+   		$(result.xmlDocument).find('entry').each(function(){
 
-			var docDate=new Date();
-			var docDateString = title.split("/");
-			var docDay = docDateString[0];
-			var docMonth = docDateString[1];
-			var docYear = docDateString[2];
-			docDate.setFullYear(parseInt(docYear),parseInt(docMonth-1),parseInt(docDay));
-			var today = new Date();
-			if (docDate>=today) { 
+		var title = $(this).find('title').text();
+		var docDate=new Date();
+		var docDateString = title.split("/");
+		var docDay = docDateString[0];
+		var docMonth = docDateString[1];
+		var docYear = docDateString[2];
+		docDate.setFullYear(parseInt(docYear),parseInt(docMonth-1),parseInt(docDay));
+		var today = new Date();
 
-				var link = $(this).find('link[rel="enclosure"]');
-				if(link.attr("rel") == "enclosure" ) { 
-					var src = link.attr("href");
-       	                		if(src.indexOf("jpg")>-1 || src.indexOf("gif")>-1) {
-						self.picQueue.push(src);
-       	                		}
-				} 
-			} else { 
-				self.picQueue.push(DEFAULT_MIDIA);
+		if (docDate>=today) { 
+			var link = $(this).find('link[rel="enclosure"]');
+			if(link.attr("rel") == "enclosure" ) { 
+				var src = link.attr("href");
+               		if(src.indexOf("jpg")>-1 || src.indexOf("gif")>-1) {
+    					self.picQueue.push(src);
+              		}
 			} 
+		} else { 
+			self.picQueue.push(DEFAULT_MIDIA);
+		} 
 
-		});
-		this.popPic();
+	    });
+	this.popPic();
 	}
 }
 
