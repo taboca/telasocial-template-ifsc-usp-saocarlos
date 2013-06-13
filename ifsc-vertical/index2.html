@@ -11,13 +11,6 @@
 <script src="map.js"></script>
 <script src="lib/tagvisor.js"></script>
 <script src="lib/choreographer.js"></script>
-<script>
-        var c=1;
-	var r=0;
-	var tt=0;
-
-</script>
-
 <style>
     #viewport { 
 	-moz-transform-origin:0 0;
@@ -25,14 +18,9 @@
 	background-color:white;
     } 
  
-    #pagetranslate { 
-	width:10080px; 
-	height:5200px; 
-    } 
-
     html, body {
         margin:0; padding:0; 
-	background-color:black;
+        background-color:black;
     } 
 	
     #debug { 
@@ -46,16 +34,10 @@
 </style>
 </head>
 
-<body onload="s1()" id="main">
+<body id="main">
 
 <div id="debug" >
 </div>
-
-<ul id='animation'>
- <li data-scope='abas-meio' data-target='panel_acontece' data-time="1s" data-effect="move" data-duration="4s" />
- <li data-scope='abas-meio' data-target='panel_defesas' data-time="30s" data-effect="move" data-duration="4s" />
- <li data-scope='abas-meio' data-target='panel_midia' data-time="60s" data-effect="move" data-duration="4s"  />
-</ul>
 
 <div id='viewport' class='viewport' >
 <div id='pagetranslate' >
@@ -117,11 +99,15 @@
 
 </div>
 
+</div>
+</div>
+</div>
 
-
-</div>
-</div>
-</div>
+<ul id='animation'>
+ <li data-scope='abas-meio' data-target='panel_acontece' data-time="1s" data-effect="scalefit" data-duration="4s" />
+ <li data-scope='abas-meio' data-target='panel_defesas' data-time="20s" data-effect="scalefit" data-duration="4s" />
+ <li data-scope='abas-meio' data-target='panel_midia' data-time="30s" data-effect="scalefit" data-duration="4s"  />
+</ul>
 
 </body>
 </html>
