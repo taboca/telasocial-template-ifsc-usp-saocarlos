@@ -7,7 +7,7 @@ var typing =  {
 		this.elementTable.innerHTML="<table><tr><td align='center' valign='middle' width='110'><div id='icon' style='' ></div></td><td><table ><tr><td height='255' valign='middle'><div class='typingPanel' id='typingcontainer'></div></td></tr><tr><td></td></tr></table></td></tr></table>";
 
 		document.getElementById("main").appendChild(this.elementTable);
-		document.getElementById("icon").innerHTML= '<img src="../vendor/g1.png" style="margin:10px; " align="left" />';
+		document.getElementById("icon").innerHTML= '<img src="../vendor/g1.png" style="margin:10px; " class="icon" align="left" />';
 		this.tweetQueue = new Array();
 
 		var first = document.createElement("div");

@@ -3,8 +3,8 @@
     <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
     <meta http-equiv="refresh" content="900;url=index2.html?mode=tv" /> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link media="screen, projection" type="text/css" href="ifsc.css" rel="stylesheet">
     <link media="screen, projection" type="text/css" href="lib/hdgrid.css" rel="stylesheet">
+    <link media="screen, projection" type="text/css" href="base.css" rel="stylesheet">
 
 <script src="vendor/jquery-min.js"></script>
 <script src="const.js"></script>
@@ -15,12 +15,12 @@
     #viewport { 
 	-moz-transform-origin:0 0;
 	overflow:hidden;
-     background: -moz-radial-gradient( 50% 0%, circle , white, rgba(100,200,250,1));
+     background: -moz-radial-gradient( 50% 15%, circle , white, white,  rgba(00,60,100,1));
     } 
  
     html, body {
         margin:0; padding:0; 
-        background-color:black;
+        background-color:#ccc;
     } 
 	
     #debug { 
@@ -45,7 +45,7 @@
 
 <div id="top" >
 
-<div class='gv2' style='url(http://www.ifsc.usp.br/images/stories/telasocial/barra_sup-nova.jpg) 0px 0 no-repeat'>
+<div class='gv2' style='background: url(http://www.ifsc.usp.br/images/stories/telasocial/barra_sup-nova.jpg) 0px 0 no-repeat'>
 
 <div class='gh540' id='topleft'>
    <div class='gv2'></div>
@@ -70,25 +70,30 @@
 <div id="middle" class='gv18' >
 </div>
 
-<div id="" class='gv5' style='border:0px solid black;' >
+<div id="" style='height:260px;border:0px solid black;' >
 
 <div class='gh' style='width:840px'>
-   <div class='gv5' id='bottom'></div>
+   <div style='height:250px'  id='bottom'></div>
 </div>
 <div class='gh' style='width:240px' >
-   <div class='gv5' id='bottomright'></div>
+   <div style='height:250px' id='bottomright'></div>
 </div>
 
 </div>
 
+<div id="sponsor" >
+<div class='gh' style='width:1080px' >
+tecnologia: telasocial
+</div>
 </div>
 
+</div>
 </div>
 
 <ul id='animation'>
  <li data-scope='abas-meio' data-target='panel_acontece' data-time="1s" data-effect="scalefit" data-duration="4s" />
- <li data-scope='abas-meio' data-target='panel_defesas' data-time="20s" data-effect="scalefit" data-duration="4s" />
- <li data-scope='abas-meio' data-target='panel_midia' data-time="5s" data-effect="scalefit" data-duration="4s"  />
+ <li data-scope='abas-meio' data-target='panel_defesas' data-time="30s" data-effect="scalefit" data-duration="4s" />
+ <li data-scope='abas-meio' data-target='panel_midia' data-time="60s" data-effect="scalefit" data-duration="4s"  />
 </ul>
 
 </body>
