@@ -6,7 +6,8 @@ URL_DESTAQUES = "http://www.ifsc.usp.br/index.php?option=com_ninjarsssyndicator&
 URL_TYPING = "http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml";
 URL_WEATHER = "http://weather.yahooapis.com/forecastrss?w=449704&u=c";
 
-DEFAULT_MIDIA = 'http://www.ifsc.usp.br/images/stories/logomarcas/logo_vertical_500x821.jpg';
+//DEFAULT_MIDIA = 'http://www.ifsc.usp.br/images/stories/logomarcas/logo_vertical_500x821.jpg';
+DEFAULT_MIDIA = '../brand/ifsc-trasp2.png'
 
 TEMPO_INICIO_MIDIA = 55000; 
 TEMPO_REFRESH_MIDIA = 90000; 

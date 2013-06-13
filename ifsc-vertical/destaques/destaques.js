@@ -52,14 +52,8 @@ var destaque =  {
 			return;
 		}
   		$(result.xmlDocument).find('item').each(function(){
-           var title = $(this).find('title').text();
-           var description = "";
-            $(this).find('description').contents().each(function() {
-                if(this.nodeName == "#text") { 
-        		description += this.textContent;
-                } 
-            });
-			self.tweetQueue.push( { title: title, desc: description } );
+           var r = doFilter(this);
+           self.tweetQueue.push( { title: r.title, desc: r.description } );
         });
 	}
 }
