@@ -1,37 +1,105 @@
 <html>
 <head>
     <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="refresh" content="900;url=index2.html?mode=tv" /> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link media="screen, projection" type="text/css" href="lib/gridlight.css" rel="stylesheet">
-    <link media="screen, projection" type="text/css" href="lib/base.css" rel="stylesheet">
-    <link media="screen, projection" type="text/css" href="lib/tagvisor.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="base.css">
-    <script type="text/javascript" src="https://www.google.com/jsapi"> </script>
-    <script type="text/javascript"> google.load("webfont", "1"); </script>
+    <link media="screen, projection" type="text/css" href="lib/hdgrid.css" rel="stylesheet">
+    <link media="screen, projection" type="text/css" href="base.css" rel="stylesheet">
 
 <script src="vendor/jquery-min.js"></script>
 <script src="const.js"></script>
 <script src="index.js"></script>
-<script src="lib/tagvisor2.js"></script>
+<script src="lib/tagvisor.js"></script>
 <script src="lib/choreographer.js"></script>
-
-<style>html { background-color:black; } body { background-color:white } </style>
+<style>
+    #viewport { 
+	-moz-transform-origin:0 0;
+	overflow:hidden;
+     background: -moz-radial-gradient( 50% 15%, circle , white, white,  rgba(00,60,100,1));
+    } 
+ 
+    html, body {
+        margin:0; padding:0; 
+        background-color:#ccc;
+    } 
+	
+    #debug { 
+		background:white;	
+		display:none;
+	} 
+    #animation { 
+		display:none;
+  	} 
+	
+</style>
 </head>
 
-<body id='main' class='base'>
+<body id="main">
 
-<ul id='animation' style='display:none'>
-  <li data-target='slide00' data-time="1s" data-effect="move" data-duration="3s" />
-  <li data-target='slide0' data-time="3s" data-effect="move" data-duration="3s" />
-  <li data-target='ladod' data-time="6s" data-effect="scalefit" data-duration="3s" />
-  <li data-target='slide00' data-time="9s" data-effect="scalefit" data-duration="3s" />
-</ul>
-
-<div id='slide00'></div>
-
-<div id='slide0'><div style="width: 1920px; height: 145px;" class="c gv"><div class="inner" id="topo">topo</div></div><div class="c gv"><div style="width: 960px; height: 810px;background-color:" class="c gh"><div class="inner" id="ladoe" style='background-color:'>ladoe</div></div><div style="width: 960px; height: 810px;" class="c gh"><div class="inner" id="ladod">ladod</div></div></div><div style="width: 1920px; height: 200px;" class="c gv"><div class="inner" id="fundo">fundo</div></div>
+<div id="debug" >
 </div>
 
-</body></html>
+<div id='viewport' class='viewport' >
+
+<div  class='gh1080 slide' data-time="2s" data-effect="move" data-duration="3s"  >
+
+<div id="top" >
+
+<div class='gv2' style='background: url(http://www.ifsc.usp.br/images/stories/telasocial/barra_sup-nova.jpg) 0px 0 no-repeat'>
+
+<div class='gh540' id='topleft'>
+   <div class='gv2'></div>
+</div>
+<div class='gh540' id='topright' >
+   <div class='gv2'></div>
+</div>
+
+</div>
+
+</div>
+
+<div id="topmiddle" class="gv4">
+
+
+
+</div>
+
+<div style='position:relative'>
+    <div id='overimage' style='left:170px;top:130px;position:absolute;width:540;height:960px;border:0px solid black;;'></div>
+<div id="middle-tabs" class='gv1' >
+</div>
+</div>
+
+<!-- central area --> 
+<div id="middle" class='gv18' >
+</div>
+
+<div id="" style='height:260px;border:0px solid black;' >
+
+<div class='gh' style='width:840px'>
+   <div style='height:250px'  id='bottom'></div>
+</div>
+<div class='gh' style='width:240px' >
+   <div style='height:250px' id='bottomright'></div>
+</div>
+
+</div>
+
+<div id="sponsor" >
+<div class='gh' style='width:1080px' >
+tecnologia: telasocial
+</div>
+</div>
+
+</div>
+</div>
+
+<ul id='animation'>
+ <li data-scope='abas-meio' data-target='panel_acontece' data-time="1000s" data-effect="scalefit" data-duration="4s" />
+ <li data-scope='abas-meio' data-target='panel_defesas' data-time="3000s" data-effect="scalefit" data-duration="4s" />
+ <li data-scope='abas-meio' data-target='panel_midia' data-time="2s" data-effect="scalefit" data-duration="4s"  />
+ <li  data-target='overimage' data-time="6000s" data-effect="scalefit" data-duration="4s"  />
+</ul>
 
 </body>
+</html>

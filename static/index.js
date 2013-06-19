@@ -1,51 +1,46 @@
+/* Grids On The Fly */
+
 $(document).ready(function() {
-   register("/main/topo", "cabecalho", "./header/index.html", iframeTemplate);
-   register("/main/ladoe", "meio", "./twitter/test.html", iframeTemplate);
-   register("/main/ladod", "mid", "./ifsc/grafico.html", iframeTemplate);
-   register("/main/fundo", "clima", "./typing/index.html", iframeTemplate);
-   compile();   
-   setTimeout('startEngine()',5000);
+   register("#main #topright", "clock", "./tempo/index.html", iframeTemplate);
+   register("#main #middle", "abas-meio", "./abas/barraAbas.html", iframeTemplate);
+   register("#main #middle-tabs", "abas", "./abas/barraAbasTop.html", iframeTemplate);
+   register("#main #topmiddle", "mid", "./destaques/index.html", iframeTemplate);
+   register("#main #bottom", "typing", "./typing/index.html", iframeTemplate);
+   register("#main #bottomright", "tempo", "./tempo-inpe/index.html", iframeTemplate);
+
+   compile(); 
+   startTagVisorAnimationEngine();
 });
 
 function startEngine() { 
-   tvMode();
    setTimeout("cicleMidia()",TEMPO_INICIO_MIDIA);
+   startTagVisorAnimationEngine();
 } 
 
 function cicleMidia() { 
    setTimeout( function () { 
-	doc = document.getElementById("meio").contentDocument;
-	cc.send( doc.getElementById("galeria").contentDocument, "container", "rotate");
+	var doc = $("#main #middle #abas").get();
+	doc = document.getElementById("abas-meio").contentDocument;
+	cc.send( doc.getElementById("midia").contentDocument, "container", "rotate");
 	cicleMidia();
    }, TEMPO_REFRESH_MIDIA);
 } 
 
-function tvMode() { 
-  //document.getElementById("viewport").style.width="1920";
-  //document.getElementById("viewport").style.height="1080";
-  animate();
+function startTagVisorAnimationEngine() { 
+    if(document.location.toString().indexOf("mode")>-1) { 
+        var param = document.location.toString().split("mode=");
+        if(param[1]=="tv") { 
+            document.getElementById("viewport").style.width="1080";
+            document.getElementById("viewport").style.height="1920";
+            tv.tickMode = true;
+            tv.add($('#animation li'));
+            animate();
+		} 
+	} 
 } 
-
-on = false;
 function animate() { 
-
-	tv.tickMode = false;
-
-	tv.add($('#animation li'));
-	tv.play(1); 
-	on = true;
-	document.body.addEventListener("keydown", function (e) { 
-		if(e.keyCode==37) { 
-			tv.tick(-1);
-			e.preventDefault();
-		} 
-		if(e.keyCode==39) { 
-			tv.tick(1);
-			e.preventDefault();
-		} 
-	}, false); 
-
-  //setTimeout("animate()",TEMPO_REFRESH);
+    tv.play();
+	setTimeout("animate()",TEMPO_REFRESH_ABAS);
 } 
 
 

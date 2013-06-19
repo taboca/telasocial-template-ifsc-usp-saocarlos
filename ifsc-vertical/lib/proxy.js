@@ -1,2 +1,0 @@
-
-document.write('<script src="http://www.google.com/jsapi" type="text/javascript"></script>');

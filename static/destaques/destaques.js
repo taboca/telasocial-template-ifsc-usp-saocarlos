@@ -31,9 +31,7 @@ var destaque =  {
 		
 		var k = document.createElement('div');
 		k.className = 'destaque_element';
-		//k.innerHTML = '<table height="200" width="100%" border="0"><tr><td valign="iddle"><div class="title">'+t+'</div><div class="description">'+d+'</div></td></tr></table>';
-		k.innerHTML = '<table height="200" width="100%" border="0"><tr><td valign="iddle"><div class="title">'+t+'</div></td></tr></table>';
-
+		k.innerHTML = '<table height="300" width="100%" border="0"><tr><td valign="middle"><div class="desc">'+d+'</div><div class="title">'+t+'</div></td></tr></table>';
 		var old = this.element.firstChild;
 		this.element.insertBefore(k, this.element.firstChild);
 		this.element.removeChild(old);
@@ -53,25 +51,10 @@ var destaque =  {
 		if (result.error) {
 			return;
 		}
-     		$(result.xmlDocument).find('item').each(function(){
-                        var title = $(this).find('title').text();
-                        //var description = $(this).find('description').text();
-                        var description = "";
-
-/*
-alert($(this).find('description').text());
-    $(this).find('description').contents().each(function() {
-        if(this.nodeName == "#text") { 
-		description += this.textContent;
-	} 
-    });
-*/
-			description+=$(this).find('description').text();
-
-                        //var image = $(this).find('image').text();
-			//self.tweetQueue.push( { title: title, image: image } );
-			self.tweetQueue.push( { title: title, desc: description } );
-                });
+  		$(result.xmlDocument).find('item').each(function(){
+           var r = doFilter(this);
+           self.tweetQueue.push( { title: r.title, desc: r.description } );
+        });
 	}
 }
 

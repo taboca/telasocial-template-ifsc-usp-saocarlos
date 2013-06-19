@@ -4,10 +4,10 @@ var typing =  {
 	feed    : null, 
 	start : function() {
 		this.elementTable = document.createElement("div");
-		this.elementTable.innerHTML="<table border='0' width='1920' height='110'><tr><td align='center' valign='middle'><img src='http://olhardigital.uol.com.br/img/logo_olhar_digital.gif' style='margin-left:10px;-moz-border-radius:12px' /></td><td><table border='0' ><tr><td height='110' width='1700' id='basecontainer' valign='middle'><div class='typingPanel' id='typingcontainer'></div></td></tr><tr><td></td></tr></table></td></tr></table>";
+		this.elementTable.innerHTML="<table><tr><td align='center' valign='middle' width='110'><div id='icon' style='' ></div></td><td><table ><tr><td height='255' valign='middle'><div class='typingPanel' id='typingcontainer'></div></td></tr><tr><td></td></tr></table></td></tr></table>";
 
 		document.getElementById("main").appendChild(this.elementTable);
-		//document.getElementById("icon").innerHTML= '';
+		document.getElementById("icon").innerHTML= '<img src="../vendor/g1.png" style="margin:10px; " class="icon" align="left" />';
 		this.tweetQueue = new Array();
 
 		var first = document.createElement("div");
