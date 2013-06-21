@@ -72,7 +72,6 @@ var app =  {
   		$(result.xmlDocument).find('entry').each(function(){
           if(MAX_FEED<5) { 
             var out = doFilter(this); 
-            alert(out.src);
             self.queue.push(out);
           } 
           MAX_FEED++;
