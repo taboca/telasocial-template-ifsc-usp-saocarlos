@@ -1,5 +1,5 @@
 rm -rf ./TelaSocial/apps/base/*
-cp -r ./ifsc-vertical/* ./TelaSocial/apps/base/
+cp -r ./static/* ./TelaSocial/apps/base/
 
 cd TelaSocial 
 cd builder
