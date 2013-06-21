@@ -1,0 +1,1 @@
+ps -efa | grep telasocial
