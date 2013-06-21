@@ -37,29 +37,11 @@
 
 var app =  {
 
-    MAX_ITEMS: 3,
-	feedURL : URL_MIDIA,
-    total:0,
-	feed    : null, 
-	start : function() {
-
-        this.elementStore = document.createElement('div');
-		this.elementStore.setAttribute("id","container");
-		document.body.appendChild(this.elementStore);
-		this.element = document.createElement('div');
-		this.element.className="";
-		this.element.id = Math.random();
-		this.tweetQueue = new Array();
-		var first = document.createElement("div");
-		this.firstId = "firstItemRows";
-		first.id = this.firstId;
-
-		this.tweetRepeated = {};
-		this.element.appendChild(first);
-		document.body.appendChild(this.element);
-		var self = this;
-		setTimeout( function(){self.updateFeed()},1500);
-	},
+    MAX_ITEMS : 3,
+    feedURL   : URL_MIDIA,
+    queue: new Array(),
+    total     : 0,
+    feed      : null, 
 
 	init : function () { 
 		this.feed = new t8l.feeds.Feed(this.feedURL);
@@ -68,58 +50,33 @@ var app =  {
 	} ,
 
 	render : function() {
-		var counter = 0;
 		var self = this;
-		if(this.tweetQueue.length<1) { 
-			setTimeout( function(){self.updateFeed()},1000);
+		if(this.queue.length<1) { 
+            self.updateFeed();
 		} else { 
-			var k = document.createElement('div');
-			k.className="item";
-			var kk = document.createElement('div');
-			kk.className="itemshadow";
-			k.innerHTML = this.tweetQueue.pop();
-			this.element.appendChild(k);
-			this.element.appendChild(kk);
-			k.className="item";
-
-			this.total++;
-			if(this.total>this.MAX_ITEMS) { 
-				var localItem = $($('div.div')[0]);
-				var src = localItem.find('img').attr('src');
-				var obj = {'src':src};
-                alert(obj.src);
-				t8l.message('/main/destaques', JSON.stringify(obj));
-				setTimeout(function() { $($("div.item")[0]).remove() } ,2000);
-				setTimeout(function() { $($("div.itemshadow")[0]).remove() } ,2000);
-
-				this.total--;
-			} 
-			setTimeout( function () { self.render() }, 600);
+			var obj = this.queue.pop();
+			t8l.message('/main/show', JSON.stringify(obj));
+            setTimeout(function () { self.render();},15000);
 		} 
 	},
 
 	updateFeed : function() {
+        if(!this.feed) { this.init(); }
 		var self =this;
 		this.feed.load( function (e) { self.__feedUpdated(e) } );
 	},
 
 	__feedUpdated : function(result) {
-
-        this.tweetRepeated = {};
 		var self  = this; 
-		var cc=0;
-
+        MAX_FEED=0;
   		$(result.xmlDocument).find('entry').each(function(){
-
-          if(cc<5) { 
+          if(MAX_FEED<5) { 
             var out = doFilter(this); 
             alert(out.src);
-            self.tweetQueue.push( '<div><img src="'+out.src+'" style="display:none"/></div>' );
+            self.queue.push(out);
           } 
-          cc++;
+          MAX_FEED++;
         });
-
-		var self = this;
 		self.render();
 	}
 }

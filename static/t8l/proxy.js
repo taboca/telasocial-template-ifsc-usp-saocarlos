@@ -7,48 +7,52 @@
 // For example, t8l.config='google'; t8l.addProxy; or t8l.addProxy; t8l.config=google;; The order we add things to t8l won't matter since the init is the key point of startup...
 
 var t8l = { 
+    GOOGLE:1, JQUERY:2, STORE:3,
     message: function (refWidget,obj) { 
-	var id = refWidget.split('/')[2];
-	var item = document.createElement('div');
-	window.parent.document.getElementById(id).contentWindow.postMessage(obj,'*');
+	    var id = refWidget.split('/')[2];
+    	window.parent.document.getElementById(id).contentWindow.postMessage(obj,'*');
     },
     feeds: { 
        Feed: null
     }, 
-    GOOGLE:1, JQUERY:2, STORE:3,
     init: function (mode) { 
-  	if(mode==this.GOOGLE) { 
-		this.mode=this.GOOGLE;
-		document.write('<script src="http://www.google.com/jsapi" type="text/javascript"></script><script> google.load("feeds","1"); google.setOnLoadCallback(t8l.callbackWhenLoaded);</script>');
-	} 
- 	if(mode==this.JQUERY) { 
-		this.mode=this.JQUERY;
-		window.addEventListener("load", function () { 
-			t8l.callbackWhenLoaded();
-		} , false);
-	}  
-	if(mode==this.STORE) { 
-		this.mode=this.STORE;
-	} 
+      	if(mode==this.GOOGLE) { 
+    		this.mode=this.GOOGLE;
+    		document.write('<script src="http://www.google.com/jsapi" type="text/javascript"></script><script> google.load("feeds","1"); google.setOnLoadCallback(t8l.callbackWhenLoaded);</script>');
+    	} 
+     	if(mode==this.JQUERY) { 
+    		this.mode=this.JQUERY;
+    		window.addEventListener("load", function () { 
+    			t8l.callbackWhenLoaded();
+    		} , false);
+    	}  
+    	if(mode==this.STORE) { 
+    		this.mode=this.STORE;
+    		window.addEventListener("load", function () { 
+    			t8l.callbackWhenLoaded();
+    		} , false);
+ 
+    	} 
     }, 
+    // user function... 
     loaded: function (callbackCallAfter) { 
-	this.callbackCallAfter = callbackCallAfter;
+    	this.callbackCallAfter = callbackCallAfter;
     },
     callbackWhenLoaded: function () { 
-	if(t8l.mode==t8l.GOOGLE) { 
-		t8l.feeds.Feed=google.feeds.Feed;
-	}
-	if(t8l.mode==t8l.JQUERY) { 
-		t8l.feeds.Feed=t8l_Feed; 
-  	} 
-	if(t8l.mode==t8l.STORE) { 
-		t8l.feeds.Feed=t8l_FeedStore; 
-		//var store = document.createElement("div");
-		//store.style.display='none';
-		//store.setAttribute('id','t8l_store');
-		//document.body.appendChild(store);
-	} 
-	t8l.callbackCallAfter();	
+    	if(t8l.mode==t8l.GOOGLE) { 
+    		t8l.feeds.Feed=google.feeds.Feed;
+    	}
+    	if(t8l.mode==t8l.JQUERY) { 
+    		t8l.feeds.Feed=t8l_Feed; 
+    	} 
+    	if(t8l.mode==t8l.STORE) { 
+    		t8l.feeds.Feed=t8l_FeedStore; 
+    		//var store = document.createElement("div");
+    		//store.style.display='none';
+    		//store.setAttribute('id','t8l_store');
+    		//document.body.appendChild(store);
+    	} 
+    	t8l.callbackCallAfter();	
     },
 } 
 

@@ -7,12 +7,11 @@ URL_TYPING = "http://g1.globo.com/dynamo/ciencia-e-saude/rss2.xml";
 URL_WEATHER = "http://weather.yahooapis.com/forecastrss?w=449704&u=c";
 
 //DEFAULT_MIDIA = 'http://www.ifsc.usp.br/images/stories/logomarcas/logo_vertical_500x821.jpg';
-DEFAULT_MIDIA = '../brand/ifsc-trasp2.png'
+DEFAULT_MIDIA = '../../brand/ifsc-trasp2.png'
 
-TEMPO_INICIO_MIDIA = 55000; 
-TEMPO_REFRESH_MIDIA = 90000; 
-TEMPO_REFRESH_ABAS = 90000; 
+TEMPO_INICIO_MIDIA = 60000; 
+TEMPO_REFRESH_MIDIA = 60000; 
+TEMPO_REFRESH_ABAS = 30000+30000+45000; 
 TEMPO_REFRESH_WEATHER = 90000; 
 
-API_KEY_GOOGLE = 'ABQIAAAAdxhnO5HfbyeQ6NXKl4uDOxSKoqW534mSMfFUlHEO4X_p_TS_PBSii6og5U1MCZLzH-8-J8KiwNK3Tg';
 

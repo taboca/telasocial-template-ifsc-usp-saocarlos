@@ -9,7 +9,7 @@ $(document).ready(function() {
    register("#main #bottomright", "tempo", "./tempo-inpe/index.html", iframeTemplate);
 
    compile(); 
-   startTagVisorAnimationEngine();
+//   startTagVisorAnimationEngine();
 });
 
 function startEngine() { 
