@@ -27,16 +27,16 @@ function cicleMidia() {
 } 
 
 function startTagVisorAnimationEngine() { 
-    if(document.location.toString().indexOf("mode")>-1) { 
-        var param = document.location.toString().split("mode=");
-        if(param[1]=="tv") { 
+//if(document.location.toString().indexOf("mode")>-1) { 
+//   var param = document.location.toString().split("mode=");
+//   if(param[1]=="tv") { 
             document.getElementById("viewport").style.width="1080";
             document.getElementById("viewport").style.height="1920";
             tv.tickMode = true;
             tv.add($('#animation li'));
             animate();
-		} 
-	} 
+//	} 
+//} 
 } 
 function animate() { 
     tv.play();
